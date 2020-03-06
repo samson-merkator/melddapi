@@ -33,7 +33,7 @@ app.config['JWT_EXPIRATION_DELTA'] = datetime.timedelta(days=365)
 
 
 
-api.add_resource(Item, '/item/<string:name>') # http://127.0.0.1:5000/birds/weidevogels
+api.add_resource(Item, '/item/') # http://127.0.0.1:5000/birds/weidevogels
 api.add_resource(ItemList, '/items') # http://127.0.0.1:5000/birds/
 api.add_resource(UserRegister, '/register') # http://127.0.0.1:5000/register/
 
