@@ -39,9 +39,10 @@ class Item(Resource):
         categorie = data["Email"]
         latitude = data["latitude"]
         longitude = data["longitude"]
-       # return {"message":cordinates[1]}
+       
         #item =ItemModel(name, Score,cordinates[0],cordinates[1])
         item =ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
+        return {"message":item}
         #,telephone,Email,categorie,toelichting,latitude,longitude
 
   
@@ -64,6 +65,7 @@ class Item(Resource):
     def put(self, name):
         #data = Item.parser.parse_args()
         data = request.get_json()
+
 
        #Score = data["features"][0]['properties']['Score']
         meldID= data["meldID"]
