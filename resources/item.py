@@ -31,11 +31,11 @@ class Item(Resource):
             #print(key, value)
         cordinates = data["features"]
         #Score = data["features"][0]['properties']['Score']
-        meldID= data["features"][0]['properties']['Score']
-        date =data["features"][0]['properties']['Score']
-        toelichting = data["features"][0]['properties']['Score']
-        telephone = data["features"][0]['properties']['Score']
-        Email = data["features"][0]['properties']['Score']
+        meldID= data["meldID"]
+        date =data["date"]
+        toelichting = data["toelichting"]
+        telephone = data["telephone"]
+        Email = data["Email"]
         #return {"message":cordinates[1]}
         #item =ItemModel(name, Score,cordinates[0],cordinates[1])
         item =ItemModel(meldID,date,name,Email,toelichting,telephone,cordinates[0],cordinates[1])
@@ -61,14 +61,19 @@ class Item(Resource):
         #data = Item.parser.parse_args()
         data = request.get_json()
 
-        cordinates = data["features"][0]['geometry']['coordinates']
-        Score = data["features"][0]['properties']['Score']
+        cordinates = data["features"]
+        #Score = data["features"][0]['properties']['Score']
+        meldID= data["meldID"]
+        date =data["date"]
+        toelichting = data["toelichting"]
+        telephone = data["telephone"]
+        Email = data["Email"]
         #data = request.get_json()
         item =ItemModel.find_by_name(name)        
-        updated_item = ItemModel(name, Score,cordinates[0],cordinates[1])
+        updated_item = ItemModel(meldID,date,name,Email,toelichting,telephone,cordinates[0],cordinates[1])
 
         if item is None:
-            item =ItemModel(name, Score,cordinates[0],cordinates[1])
+            item =ItemModel(meldID,date,name,Email,toelichting,telephone,cordinates[0],cordinates[1])
         else:
             item.Score = Score
             item.latitude = cordinates[0]

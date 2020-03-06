@@ -24,7 +24,7 @@ class ItemModel(db.Model):
         self.longitude = longitude
 
     def json(self):
-        return{'meldID':meldID,'date':date,'name':self.name , 'Email':Email,'toelichting':self.toelichting,'latitude':self.latitude,'longitude':self.longitude}
+        return{'meldID':self.meldID,'date':self.date,'name':self.name , 'Email':self.Email,'toelichting':self.toelichting,'latitude':self.latitude,'longitude':self.longitude}
     
     @classmethod
     def find_by_name(cls, name):
