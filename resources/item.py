@@ -30,7 +30,7 @@ class Item(Resource):
         #for key, value in data["features"].:
             #print(key, value)
         #cordinates = data["features"]
-        #Score = data["features"][0]['properties']['Score']
+        name = data["features"][0]['properties']['Score']
         meldID= data["meldID"]
         date =data["date"]
         toelichting = data["toelichting"]
@@ -80,9 +80,15 @@ class Item(Resource):
         if item is None:
             item =ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
         else:
-            item.Score = Score
-            item.latitude = cordinates[0]
-            item.longitude = cordinates[1]
+            item.meldID = meldID
+            item.date = date
+            item.name = name
+            item.telephone = telephone
+            item.Email = Email
+            item.categorie = categorie
+            item.toelichting = toelichting
+            item.latitude = latitude
+            item.longitude = longitude
         item.save_to_db()
 
         return updated_item.json()
