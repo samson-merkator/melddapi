@@ -8,7 +8,7 @@ class ItemModel(db.Model):
     meldID = db.Column(db.String(80)) 
     date = db.Column(db.String(80))
     name = db.Column(db.String(80))       
-    #telephone = db.Column(db.Integer(80))
+    telephone = db.Column(db.Integer)
     Email = db.Column(db.String(80))
     categorie = db.Column(db.String(80))
     toelichting = db.Column(db.String(80))
@@ -16,20 +16,20 @@ class ItemModel(db.Model):
     longitude = db.Column(db.Float)
     
 
-    def __init__(self, date,name, meldID,Email,categorie,toelichting,latitude,longitude):
+    def __init__(self,meldID, date,name,telephone,Email,categorie,toelichting,latitude,longitude):
         self.meldID = meldID
         self.date = date
         self.name = name
-        #self.telephone =telephone
+        self.telephone =telephone
         self.Email=Email
-        self.telephone=telephone
+        #self.telephone=telephone
         self.categorie = categorie
         self.toelichting = toelichting
         self.latitude = latitude
         self.longitude = longitude
 #
     def json(self):
-        return{ 'id':self.meldID,"date":self.date,'name':self.name,'email':self.Email,'categorie':self.categorie,'toelichting':self.toelichting,'latitude':self.latitude,'longitude':self.longitude}
+        return{ 'id':self.meldID,"date":self.date,'name':self.name,'telephone':self.telephone,'email':self.Email,'categorie':self.categorie,'toelichting':self.toelichting,'latitude':self.latitude,'longitude':self.longitude}
         #'telephone':self.telephone,'email':self.Email,'categorie':self.categorie,'toelichting':self.toelichting,'latitude':self.latitude,'longitude':self.longitude
     
     @classmethod

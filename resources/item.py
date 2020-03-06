@@ -34,14 +34,14 @@ class Item(Resource):
         meldID= data["meldID"]
         date =data["date"]
         toelichting = data["toelichting"]
-        #telephone = data["telephone"]
+        telephone = data["telephone"]
         Email = data["Email"]
         categorie = data["Email"]
         latitude = data["latitude"]
         longitude = data["longitude"]
-        return {"message":cordinates[1]}
+       # return {"message":cordinates[1]}
         #item =ItemModel(name, Score,cordinates[0],cordinates[1])
-        item =ItemModel(meldID,date,name,Email,categorie,toelichting,latitude,longitude)
+        item =ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
         #,telephone,Email,categorie,toelichting,latitude,longitude
 
   
@@ -76,17 +76,17 @@ class Item(Resource):
         longitude = data["longitude"]
         #data = request.get_json()
         item =ItemModel.find_by_name(name)        
-        updated_item = ItemModel(meldID,date,name)
+        updated_item = ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
         #,telephone,Email,categorie,toelichting,latitude,longitude
 
         if item is None:
-            item =ItemModel(meldID,date,name,telephone)
+            item =ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
             #,telephone,Email,categorie,toelichting,latitude,longitude
         else:
             item.meldID = meldID
             item.date = date
             item.name = name
-            #item.telephone = telephone
+            item.telephone = telephone
             item.Email = Email
             item.categorie = categorie
             item.toelichting = toelichting
