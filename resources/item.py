@@ -30,18 +30,18 @@ class Item(Resource):
         #for key, value in data["features"].:
             #print(key, value)
         #cordinates = data["features"]
-        name = data["features"][0]['properties']['Score']
+        name = data["name"]
         meldID= data["meldID"]
         date =data["date"]
         toelichting = data["toelichting"]
-        telephone = data["telephone"]
+        #telephone = data["telephone"]
         Email = data["Email"]
         categorie = data["Email"]
         latitude = data["latitude"]
         longitude = data["longitude"]
-        #return {"message":cordinates[1]}
+        return {"message":cordinates[1]}
         #item =ItemModel(name, Score,cordinates[0],cordinates[1])
-        item =ItemModel(meldID,date,name,telephone)
+        item =ItemModel(meldID,date,name,Email,categorie,toelichting,latitude,longitude)
         #,telephone,Email,categorie,toelichting,latitude,longitude
 
   
@@ -86,7 +86,7 @@ class Item(Resource):
             item.meldID = meldID
             item.date = date
             item.name = name
-            item.telephone = telephone
+            #item.telephone = telephone
             item.Email = Email
             item.categorie = categorie
             item.toelichting = toelichting
