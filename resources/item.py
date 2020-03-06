@@ -31,14 +31,14 @@ class Item(Resource):
             #print(key, value)
         #cordinates = data["features"]
         name = data["name"]
-        meldID= data["meldID"]
+        meldID= data["id"]
         date =data["date"]
         toelichting = data["toelichting"]
         telephone = data["telephone"]
-        Email = data["Email"]
-        categorie = data["Email"]
-        latitude = data["latitude"]
-        longitude = data["longitude"]
+        Email = data["email"]
+        categorie = data["categorie"]
+        latitude = data["XCoordinaat"]
+        longitude = data["YCoordinaat"]
        
         #item =ItemModel(name, Score,cordinates[0],cordinates[1])
         item =ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
@@ -68,15 +68,15 @@ class Item(Resource):
 
 
        #Score = data["features"][0]['properties']['Score']
-        meldID= data["meldID"]
+        meldID= data["id"]
         date =data["date"]
         name =data["name"]
         toelichting = data["toelichting"]
         telephone = data["telephone"]
-        Email = data["Email"]
-        categorie = data["Email"]
-        latitude = data["latitude"]
-        longitude = data["longitude"]
+        Email = data["email"]
+        categorie = data["categorie"]
+        latitude = data["XCoordinaat"]
+        longitude = data["YCoordinaat"]
         #data = request.get_json()
         item =ItemModel.find_by_name(name)        
         updated_item = ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
