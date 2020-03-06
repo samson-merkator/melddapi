@@ -41,7 +41,8 @@ class Item(Resource):
         longitude = data["longitude"]
         #return {"message":cordinates[1]}
         #item =ItemModel(name, Score,cordinates[0],cordinates[1])
-        item =ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
+        item =ItemModel(meldID,date,name)
+        #,telephone,Email,categorie,toelichting,latitude,longitude
 
   
 
@@ -75,10 +76,12 @@ class Item(Resource):
         longitude = data["longitude"]
         #data = request.get_json()
         item =ItemModel.find_by_name(name)        
-        updated_item = ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
+        updated_item = ItemModel(meldID,date,name)
+        #,telephone,Email,categorie,toelichting,latitude,longitude
 
         if item is None:
-            item =ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
+            item =ItemModel(meldID,date,name)
+            #,telephone,Email,categorie,toelichting,latitude,longitude
         else:
             item.meldID = meldID
             item.date = date
