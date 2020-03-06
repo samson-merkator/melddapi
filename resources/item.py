@@ -62,7 +62,7 @@ class Item(Resource):
         return {'message':'data deleted successfully'}
 
 
-    def put(self, name):
+    def put(self):
         #data = Item.parser.parse_args()
         data = request.get_json()
 
@@ -70,6 +70,7 @@ class Item(Resource):
        #Score = data["features"][0]['properties']['Score']
         meldID= data["meldID"]
         date =data["date"]
+        name =data["name"]
         toelichting = data["toelichting"]
         telephone = data["telephone"]
         Email = data["Email"]
