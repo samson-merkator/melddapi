@@ -29,16 +29,19 @@ class Item(Resource):
         #data = Item.parser.parse_args()
         #for key, value in data["features"].:
             #print(key, value)
-        cordinates = data["features"]
+        #cordinates = data["features"]
         #Score = data["features"][0]['properties']['Score']
         meldID= data["meldID"]
         date =data["date"]
         toelichting = data["toelichting"]
         telephone = data["telephone"]
         Email = data["Email"]
+        categorie = data["Email"]
+        latitude = data["latitude"]
+        longitude = data["longitude"]
         #return {"message":cordinates[1]}
         #item =ItemModel(name, Score,cordinates[0],cordinates[1])
-        item =ItemModel(meldID,date,name,Email,toelichting,telephone,cordinates[0],cordinates[1])
+        item =ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
 
   
 
@@ -61,19 +64,21 @@ class Item(Resource):
         #data = Item.parser.parse_args()
         data = request.get_json()
 
-        cordinates = data["features"]
-        #Score = data["features"][0]['properties']['Score']
+       #Score = data["features"][0]['properties']['Score']
         meldID= data["meldID"]
         date =data["date"]
         toelichting = data["toelichting"]
         telephone = data["telephone"]
         Email = data["Email"]
+        categorie = data["Email"]
+        latitude = data["latitude"]
+        longitude = data["longitude"]
         #data = request.get_json()
         item =ItemModel.find_by_name(name)        
-        updated_item = ItemModel(meldID,date,name,Email,toelichting,telephone,cordinates[0],cordinates[1])
+        updated_item = ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
 
         if item is None:
-            item =ItemModel(meldID,date,name,Email,toelichting,telephone,cordinates[0],cordinates[1])
+            item =ItemModel(meldID,date,name,telephone,Email,categorie,toelichting,latitude,longitude)
         else:
             item.Score = Score
             item.latitude = cordinates[0]
