@@ -8,18 +8,19 @@ class ItemModel(db.Model):
     meldID = db.Column(db.String(80)) 
     date = db.Column(db.String(80))
     name = db.Column(db.String(80))       
-    '''telephone = db.Column(db.Integer(80))
-    Email = db.Column(db.String(80))
+    telephone = db.Column(db.Integer(80))
+    '''Email = db.Column(db.String(80))
     categorie = db.Column(db.String(80))
     toelichting = db.Column(db.String(80))
     latitude = db.Column(db.Float)
     longitude = db.Column(db.Float)'''
     
 
-    def __init__(self, date,name, meldID, ):
+    def __init__(self, date,name, meldID,telephone ):
         self.meldID = meldID
         self.date = date
         self.name = name
+        self.telephone =telephone
         '''self.Email=Email
         self.telephone=telephone
         self.categorie = categorie
@@ -28,7 +29,7 @@ class ItemModel(db.Model):
         self.longitude = longitude'''
 #telephone,Email,categorie,toelichting,latitude,longitude
     def json(self):
-        return{ 'id':self.meldID,"date":self.date,'name':self.name}
+        return{ 'id':self.meldID,"date":self.date,'name':self.name,'telephone':self.telephone}
         #'telephone':self.telephone,'email':self.Email,'categorie':self.categorie,'toelichting':self.toelichting,'latitude':self.latitude,'longitude':self.longitude
     
     @classmethod

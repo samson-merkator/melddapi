@@ -41,7 +41,7 @@ class Item(Resource):
         longitude = data["longitude"]
         #return {"message":cordinates[1]}
         #item =ItemModel(name, Score,cordinates[0],cordinates[1])
-        item =ItemModel(meldID,date,name)
+        item =ItemModel(meldID,date,name,telephone)
         #,telephone,Email,categorie,toelichting,latitude,longitude
 
   
@@ -80,7 +80,7 @@ class Item(Resource):
         #,telephone,Email,categorie,toelichting,latitude,longitude
 
         if item is None:
-            item =ItemModel(meldID,date,name)
+            item =ItemModel(meldID,date,name,telephone)
             #,telephone,Email,categorie,toelichting,latitude,longitude
         else:
             item.meldID = meldID
