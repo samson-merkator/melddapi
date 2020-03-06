@@ -29,7 +29,7 @@ class Item(Resource):
         #data = Item.parser.parse_args()
         #for key, value in data["features"].:
             #print(key, value)
-        cordinates = data["features"][0]['geometry']['coordinates']
+        cordinates = data["features"]
         #Score = data["features"][0]['properties']['Score']
         meldID= data["features"][0]['properties']['Score']
         date =data["features"][0]['properties']['Score']
